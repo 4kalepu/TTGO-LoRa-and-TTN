@@ -1,19 +1,21 @@
+//4kalepu
+
 #include <TinyGPS++.h>
 TinyGPSPlus gps;
 HardwareSerial SerialX(1);
 void setup(){
 
 Serial.begin(115200); 
-SerialX.begin(9600, SERIAL_8N1, 12, 15);
+SerialX.begin(9600, SERIAL_8N1, 12, 15); //8N1-eight (8) data bits, no (N) parity bit, and one (1) stop bit. 8N1-12,15-TX,RX
 }
 void loop()
 {
 
 Serial.print("Latitude   :   ");
-Serial.println (gps.location.lat(), 5); 
+Serial.println (gps.location.lat(), 5); // 5 decimal places
 
 Serial.print ("Longitude : ");
-Serial.println (gps.location. lng(), 4);
+Serial.println (gps.location. lng(), 4); // 4 decimal places
 
 Serial.print("Satellites: ");
 Serial.println (gps.satellites.value());
@@ -38,7 +40,7 @@ Serial.println("*****************");
 smartDelay(1000);
 
 if (millis() > 5000 && gps.charsProcessed() <10)
-Serial.println (F("No GPS data received: check wiring"));
+Serial.println (F("No GPS data received: check wirig"));
 }
 static void smartDelay(unsigned long ms)
 { 
